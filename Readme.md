@@ -9,7 +9,6 @@ Our code is based on Ubuntu 20.04, pytorch 1.12.0, CUDA 11.8 (NVIDIA RTX 3090 24
 	https://pytorch-wavelets.readthedocs.io/en/latest/readme.html
 
 #### 1. first train with degradation module
-``
 ```
 CUDA_VISIBLE_DEVICES=0 python train_degrade.py --config configs/degradation.yaml --tag (your model name) --savedir (your path to model save director) --queue
 ```
