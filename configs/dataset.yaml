@@ -1,0 +1,23 @@
+blur:
+  # Degradation specifications
+  blur_type: aniso_gaussian
+  noise: 0.0
+  ## isotropic Gaussian blur
+  sig_min: 0.2
+  sig_max: 4.0
+  sig: 5.0
+  ## anisotropic Gaussian blur
+  lambda_min: 0.7
+  lambda_max: 7.0
+  lambda_1: 3.2
+  lambda_2: 1.5
+  theta: 0
+  
+  
+dataset:
+   name: image-folder
+   args:
+     root_path: path/to/the/HR/image
+
+scale: 8
+savepath: path/to/save/your/synthesized/image

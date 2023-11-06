@@ -1,0 +1,61 @@
+seed: 1
+inp_size: 48
+batch_size: 128
+total_batch_size: 128
+epoch_max: 1500 
+epoch_save: 100
+queue_size: 2048
+
+blur:
+  # Degradation specifications
+  blur_type: aniso_gaussian
+  mode: bicubic
+  noise: 0.0
+  ## isotropic Gaussian blur
+  sig_min: 0.2
+  sig_max: 4.0
+  sig: 4.0
+  ## anisotropic Gaussian blur
+  lambda_min: 0.2
+  lambda_max: 4.0
+  lambda_1: 0.2
+  lambda_2: 4.0
+  theta: 0.0
+  
+dataset1:
+  dataset:
+    name: image-folder
+    args:
+      root_path: /your/path/to/train/HR/directory/
+      cache: in_memory
+      repeat: 3
+  wrapper:
+    name: sr-degrade
+    args:
+      inp_size: 48
+      augment: true
+
+optimizer:
+  name: adam
+  args:
+   lr: 0.03
+   weight_decay: 0 
+
+degrade:
+  name: simsiam
+  args:
+    dim: 256
+    pred_dim: 512
+
+kernel:
+  name: kernel
+  args:
+    {}
+
+wavelet:
+  mode: zero
+  wave: haar
+
+data_norm:
+  sub: 0.5
+  div: 0.5
